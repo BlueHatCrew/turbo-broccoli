@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          font-size: 200%;
+        }
+        body {
+          background-color: black;
+          color: white;
+        }
+        h1, h2, h3, p {
+          text-shadow: 2px 2px 2px rgba(255, 165, 0);
+        }
+        body {
+          margin: 0;
+          padding: 2em;
+        }
+      </style>
+    <title>TacoTake</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <h1>Something I want to say:</h1>
+    <hr>
+    <p>This is your ip: <span id="ip_address"></span></p><br>
+    <p> Your in <span id="city_name"></span>, <span id="region_name"></span>, <span id="country_name"></span></p><br>
+  <p> At exactly: <span id="latitude"></span><span id="longitude"></span></p> 
+    <hr>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.getJSON("https://ipapi.co/json/", function(data) {
+                $("#ip_address").text(data.ip);
+                $("#country_name").text(data.country_name);
+                $("#region_name").text(data.region);
+                $("#city_name").text(data.city);
+                $("#latitude").text(data.latitude);
+                $("#longitude").text(data.longitude);
+            });
+
+            $("#user_agent").text(navigator.userAgent);
+        });
+    </script>
+</body>
+</html>
